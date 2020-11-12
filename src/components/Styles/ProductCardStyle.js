@@ -7,7 +7,7 @@ export const ProductCard = styled.div`
 `;
 
 export const ProductImage = styled.img`
-  width: 80%;
+  width: 75%;
   height: auto;
   margin: auto;
   padding: 1.2em;
@@ -16,7 +16,7 @@ export const ProductImage = styled.img`
 export const ProductPrice = styled.div`
   display: block;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   padding: 0 0.4em;
 `;
 

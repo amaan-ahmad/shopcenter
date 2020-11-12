@@ -15,7 +15,7 @@ export default function Tabs() {
   return (
     <>
       <TabBar>
-        <TabBarItem>
+        <TabBarItem isActive={true}>
           <DashboardRoundedIcon />
         </TabBarItem>
         <TabBarItem>

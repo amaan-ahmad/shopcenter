@@ -19,7 +19,7 @@ export const TabBar = styled.div`
 
 export const TabBarItem = styled.div`
   color : ${(props) => {
-    return props.isActive ? "black" : "#bbbbbb";
+    return props.isActive ? "black;" : "#0000005c;";
   }}
   display: block;
   padding: 0.8em;
