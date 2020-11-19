@@ -1,5 +1,6 @@
 // home page
 import React from "react";
+import { Link } from "react-router-dom";
 import faker from "faker";
 import { Grid } from "@material-ui/core";
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded";
@@ -100,11 +101,13 @@ export default function Home() {
                 md={3}
                 style={{ border: `1px solid #14131308` }}
               >
-                <ProductCard>
-                  <ProductImage src={item.img}></ProductImage>
-                  <ProductPrice>&#x20B9; {item.price}</ProductPrice>
-                  <ProductCaption>{item.name}</ProductCaption>
-                </ProductCard>
+                <Link to={`/product`}>
+                  <ProductCard>
+                    <ProductImage src={item.img}></ProductImage>
+                    <ProductPrice>&#x20B9; {item.price}</ProductPrice>
+                    <ProductCaption>{item.name}</ProductCaption>
+                  </ProductCard>
+                </Link>
               </Grid>
             </>
           );
