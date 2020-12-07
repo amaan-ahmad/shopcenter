@@ -25,7 +25,7 @@ export default function Product() {
           Jacket
         </HeaderItem>
       </Header>
-      <Grid container direction="row">
+      <Grid style={{ paddingBottom: "4em" }} container direction="row">
         <Grid item xs={12} sm={4}>
           <ProductCard>
             <ProductImage src="https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1589077/2016/10/14/11476429946471-naughty-ninos-Girls-Coats-4921476429946326-1.jpg"></ProductImage>

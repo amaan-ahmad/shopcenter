@@ -11,25 +11,22 @@ import LocalMallRoundedIcon from "@material-ui/icons/LocalMallRounded";
 import BookmarkBorderRoundedIcon from "@material-ui/icons/BookmarkBorderRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 
+// array
+const tabIcons = [
+  { component: <DashboardRoundedIcon />, id: 1, isActive: true },
+  { component: <SearchRoundedIcon />, id: 2, isActive: false },
+  { component: <LocalMallRoundedIcon />, id: 3, isActive: false },
+  { component: <BookmarkBorderRoundedIcon />, id: 4, isActive: false },
+  { component: <SettingsRoundedIcon />, id: false },
+];
+
 export default function Tabs() {
   return (
     <>
       <TabBar>
-        <TabBarItem isActive={true}>
-          <DashboardRoundedIcon />
-        </TabBarItem>
-        <TabBarItem>
-          <SearchRoundedIcon />
-        </TabBarItem>
-        <TabBarItem>
-          <LocalMallRoundedIcon />
-        </TabBarItem>
-        <TabBarItem>
-          <BookmarkBorderRoundedIcon />
-        </TabBarItem>
-        <TabBarItem>
-          <SettingsRoundedIcon />
-        </TabBarItem>
+        {tabIcons.map((i) => {
+          return <TabBarItem isActive={i.isActive}>{i.component}</TabBarItem>;
+        })}
       </TabBar>
     </>
   );
