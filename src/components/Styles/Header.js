@@ -6,9 +6,10 @@ export const Header = styled.div`
   justify-content: space-between;
   width: -webkit-fill-available;
   padding: 0.2em;
-  box-shadow: 0 1px 6px -4px black;
+  box-shadow: ${(props) => (props.shadow ? "0 1px 6px -4px black;" : "none;")}
   position: sticky;
   top: 0;
+  background: white;
 `;
 
 export const HeaderItem = styled.div`
@@ -22,17 +23,22 @@ export const HeaderItem = styled.div`
 export const SubHeader = styled.div`
   display: flex;
   flex-directon: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: -webkit-fill-available;
-  overflow: hidden;
-  padding: 0.8em;
-  border-bottom: 1px solid lightgrey;
+  overflow: auto;
+  padding: 1em 0.4em;
   position: sticky;
+  box-shadow: 0 1px 6px -4px black;
 `;
 
 export const SubHeaderItem = styled.div`
-  padding: 0.2em;
+  margin: 0 0.4em;
+  white-space: nowrap;
+  padding: 0.6em 1.2em;
   display: block;
   font-size: 12px;
   font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px -5px #7070708f;
+  background: #ecececab;
 `;

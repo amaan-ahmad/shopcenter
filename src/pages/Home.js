@@ -76,9 +76,12 @@ export default function Home() {
           <SubHeader>
             <SubHeaderItem>New arrivals</SubHeaderItem>
             <SubHeaderItem>Trendy</SubHeaderItem>
-            <SubHeaderItem>Jackets</SubHeaderItem>
-            <SubHeaderItem>Handbags</SubHeaderItem>
-            <SubHeaderItem>Shoes</SubHeaderItem>
+            <SubHeaderItem>Season Sale</SubHeaderItem>
+            <SubHeaderItem>More</SubHeaderItem>
+            <SubHeaderItem>New arrivals</SubHeaderItem>
+            <SubHeaderItem>Trendy</SubHeaderItem>
+            <SubHeaderItem>Season Sale</SubHeaderItem>
+            <SubHeaderItem>More</SubHeaderItem>
           </SubHeader>
         </Grid>
       </Grid>

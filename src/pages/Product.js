@@ -8,13 +8,14 @@ import {
   ProductCard,
   ProductImage,
 } from "../components/Styles/ProductCardStyle";
+import { BtnAction, SizeOption } from "../components/Styles/ProductPage";
 import Tabs from "../components/Nav/Tabs";
 
 export default function Product() {
   return (
     <>
       <Tabs />
-      <Header>
+      <Header shadow={true}>
         <HeaderItem>
           <Link to={`/`}>
             <ArrowBackIosRoundedIcon />
@@ -35,10 +36,22 @@ export default function Product() {
             <Grid item xs={12}>
               <Typography variant="h5">Double sided Jacket</Typography>
             </Grid>
+            <Grid item xs={12} style={{ marginTop: "2em" }}>
+              <Typography variant="body1">Select a size</Typography>
+            </Grid>
+            <Grid item xs={12} style={{ display: "flex" }}>
+              <SizeOption isActive={true}>
+                <span>S</span>
+              </SizeOption>
+              <SizeOption isActive={false}>
+                <span>M</span>
+              </SizeOption>
+              <SizeOption isActive={false}>
+                <span>L</span>
+              </SizeOption>
+            </Grid>
             <Grid item xs={12}>
-              <Typography variant="body1">
-                Sizes: Small, medium, large
-              </Typography>
+              <BtnAction>Add to cart</BtnAction>
             </Grid>
           </Grid>
         </Grid>
