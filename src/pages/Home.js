@@ -3,15 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import faker from "faker";
 import { Grid } from "@material-ui/core";
-import TuneRoundedIcon from "@material-ui/icons/TuneRounded";
-import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import Tabs from "../components/Nav/Tabs";
-import {
-  Header,
-  HeaderItem,
-  SubHeader,
-  SubHeaderItem,
-} from "../components/Styles/Header";
+import { HomeHeader } from "../components/Nav/Headers";
 import {
   ProductCaption,
   ProductCard,
@@ -52,39 +45,7 @@ export default function Home() {
   return (
     <>
       <Tabs />
-      <Grid
-        container
-        direction="column"
-        style={{
-          background: "white",
-          position: "sticky",
-          top: 0,
-        }}
-      >
-        <Grid item xs={12}>
-          <Header>
-            <HeaderItem>
-              <MenuRoundedIcon />
-            </HeaderItem>
-            <HeaderItem>NBF</HeaderItem>
-            <HeaderItem>
-              <TuneRoundedIcon />
-            </HeaderItem>
-          </Header>
-        </Grid>
-        <Grid xs={12}>
-          <SubHeader>
-            <SubHeaderItem>New arrivals</SubHeaderItem>
-            <SubHeaderItem>Trendy</SubHeaderItem>
-            <SubHeaderItem>Season Sale</SubHeaderItem>
-            <SubHeaderItem>More</SubHeaderItem>
-            <SubHeaderItem>New arrivals</SubHeaderItem>
-            <SubHeaderItem>Trendy</SubHeaderItem>
-            <SubHeaderItem>Season Sale</SubHeaderItem>
-            <SubHeaderItem>More</SubHeaderItem>
-          </SubHeader>
-        </Grid>
-      </Grid>
+      <HomeHeader />
       <Grid
         container
         direction="row"

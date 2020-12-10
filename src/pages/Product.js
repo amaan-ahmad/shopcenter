@@ -1,8 +1,5 @@
 // product page
 import React from "react";
-import { Link } from "react-router-dom";
-import { Header, HeaderItem } from "../components/Styles/Header";
-import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 import { Grid, Typography } from "@material-ui/core";
 import {
   ProductCard,
@@ -10,7 +7,7 @@ import {
 } from "../components/Styles/ProductCardStyle";
 import { BtnAction, SizeOption } from "../components/Styles/ProductPage";
 import Tabs from "../components/Nav/Tabs";
-
+import { ProductHeader } from "../components/Nav/Headers";
 const addToCart = () => {
   console.log("added to cart");
 };
@@ -19,16 +16,7 @@ export default function Product() {
   return (
     <>
       <Tabs />
-      <Header shadow={true}>
-        <HeaderItem>
-          <Link to={`/`}>
-            <ArrowBackIosRoundedIcon />
-          </Link>
-        </HeaderItem>
-        <HeaderItem style={{ marginRight: "0", fontWeight: 600 }}>
-          Jacket
-        </HeaderItem>
-      </Header>
+      <ProductHeader />
       <Grid style={{ paddingBottom: "4em" }} container direction="row">
         <Grid item xs={12} sm={4}>
           <ProductCard>

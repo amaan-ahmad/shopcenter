@@ -42,3 +42,14 @@ export const SubHeaderItem = styled.div`
   box-shadow: 0 4px 6px -5px #7070708f;
   background: #ecececab;
 `;
+
+export const SearchField = styled.input`
+  border-radius: 50px;
+  font-size: 1em;
+  border: 1px solid;
+  padding: 0.6em;
+
+  &:focus {
+    outline: none;
+  }
+`;

@@ -5,7 +5,7 @@ export const TabBar = styled.div`
   justify-content: space-evenly;
   flex-direction: row;
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
   width: -webkit-fill-available;
   height: fit-content;
   margin: 0;
