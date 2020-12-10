@@ -11,6 +11,10 @@ import {
 import { BtnAction, SizeOption } from "../components/Styles/ProductPage";
 import Tabs from "../components/Nav/Tabs";
 
+const addToCart = () => {
+  console.log("added to cart");
+};
+
 export default function Product() {
   return (
     <>
@@ -51,7 +55,7 @@ export default function Product() {
               </SizeOption>
             </Grid>
             <Grid item xs={12}>
-              <BtnAction>Add to cart</BtnAction>
+              <BtnAction onClick={addToCart}>Add to cart</BtnAction>
             </Grid>
           </Grid>
         </Grid>

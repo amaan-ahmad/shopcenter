@@ -15,7 +15,7 @@ export const SizeOption = styled.div`
   font-weight: 600;
 `;
 
-export const BtnAction = styled.div`
+export const BtnAction = styled.button`
   width: -webkit-fill-available;
   text-align: center;
   height: fit-content;
