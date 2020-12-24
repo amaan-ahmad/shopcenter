@@ -6,6 +6,8 @@ import {
   SearchListItemImage,
 } from "../components/Styles/SearchListStyle";
 export default function SearchList() {
+  const staticPlaceholdURL = "https://placehold.it/100x100";
+
   return (
     <>
       <SearchListScroll>
@@ -13,7 +15,7 @@ export default function SearchList() {
           return (
             <>
               <SearchListItem key={index}>
-                <SearchListItemImage src="https://placehold.it/100x100" />
+                <SearchListItemImage src={staticPlaceholdURL} />
                 <SearchListItemName>Popular dress</SearchListItemName>
               </SearchListItem>
             </>

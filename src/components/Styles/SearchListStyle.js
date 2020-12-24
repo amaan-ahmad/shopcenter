@@ -22,6 +22,5 @@ export const SearchListItemImage = styled.img`
 
 export const SearchListItemName = styled.div`
   display: block;
-  font-weight: 600;
   font-size: 1.2em;
 `;

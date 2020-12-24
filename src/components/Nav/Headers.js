@@ -10,6 +10,7 @@ import {
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
+import BookmarksOutlinedIcon from "@material-ui/icons/BookmarksOutlined";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import { Link } from "react-router-dom";
 
@@ -63,7 +64,7 @@ export function ProductHeader() {
           </Link>
         </HeaderItem>
         <HeaderItem style={{ marginRight: "0", fontWeight: 600 }}>
-          Jacket
+          <BookmarksOutlinedIcon />
         </HeaderItem>
       </Header>
     </>
