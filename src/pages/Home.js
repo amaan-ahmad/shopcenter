@@ -26,6 +26,7 @@ const products = [
     img: `${dummyImg[Math.floor(Math.random() * dummyImg.length)]}`,
     name: `${faker.commerce.productName()}`,
     price: `${faker.commerce.price()}`,
+    category: `${faker.commerce.department()}`,
   },
 ];
 
@@ -36,8 +37,10 @@ function populateProducts() {
       img: `${dummyImg[Math.floor(Math.random() * dummyImg.length)]}`,
       name: `${faker.commerce.productName()}`,
       price: `${faker.commerce.price()}`,
+      category: `${faker.commerce.department()}`,
     });
   }
+  console.log(products);
 }
 populateProducts();
 
@@ -55,7 +58,7 @@ export default function Home() {
           paddingBottom: "4em",
         }}
       >
-        {products.map((item) => {
+        {products.map((item, index) => {
           return (
             <>
               <Grid
@@ -64,8 +67,9 @@ export default function Home() {
                 sm={4}
                 md={3}
                 style={{ border: `1px solid #14131308` }}
+                key={index}
               >
-                <Link to={`/product`}>
+                <Link to={{ pathname: `/product`, state: { product: item } }}>
                   <ProductCard>
                     <ProductImage src={item.img}></ProductImage>
                     <ProductPrice>&#x20B9; {item.price}</ProductPrice>

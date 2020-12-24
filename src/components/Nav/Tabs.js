@@ -1,7 +1,8 @@
 // core libs
-import React from "react";
+import React, { useContext } from "react";
 // components
 import { TabBar, TabBarItem } from "../Styles/TabBar";
+import { TabContext } from "../../Context";
 
 // icons
 import DashboardRoundedIcon from "@material-ui/icons/DashboardRounded";
@@ -9,7 +10,7 @@ import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import LocalMallRoundedIcon from "@material-ui/icons/LocalMallRounded";
 import BookmarkBorderRoundedIcon from "@material-ui/icons/BookmarkBorderRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // array
 const tabIcons = [
@@ -29,7 +30,7 @@ const tabIcons = [
   },
   {
     component: <SettingsRoundedIcon />,
-    id: 4,
+    id: 5,
     isActive: false,
     link: "/settings",
   },
@@ -41,14 +42,17 @@ const isTabActive = (currentPath, tabLink) => {
 };
 
 export default function Tabs() {
-  const { pathname } = useLocation();
-
+  const context = useContext(TabContext);
   return (
     <>
       <TabBar>
-        {tabIcons.map((i) => {
+        {tabIcons.map((i, index) => {
           return (
-            <TabBarItem isActive={isTabActive(pathname, i.link)}>
+            <TabBarItem
+              key={index}
+              isActive={isTabActive(context.activeTab, i.link)}
+              onClick={() => (context.activeTab = i.link)}
+            >
               <Link to={i.link}>{i.component}</Link>
             </TabBarItem>
           );

@@ -36,7 +36,7 @@ export function HomeHeader() {
             </HeaderItem>
           </Header>
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12}>
           <SubHeader>
             <SubHeaderItem>New arrivals</SubHeaderItem>
             <SubHeaderItem>Trendy</SubHeaderItem>
