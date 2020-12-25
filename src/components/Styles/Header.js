@@ -15,7 +15,7 @@ export const Header = styled.div`
 export const HeaderItem = styled.div`
   padding: 0.8em;
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
   letter-spacing: -1px;
 `;
