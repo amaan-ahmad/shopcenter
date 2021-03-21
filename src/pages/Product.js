@@ -5,7 +5,8 @@ import {
   ProductCard,
   ProductImage,
 } from "../components/Styles/ProductCardStyle";
-import { BtnAction, SizeOption } from "../components/Styles/ProductPage";
+import { SizeOption } from "../components/Styles/ProductPage";
+import { BtnAction } from "../components/Styles/Common";
 import Tabs from "../components/Nav/Tabs";
 import { ProductHeader } from "../components/Nav/Headers";
 import { useLocation } from "react-router-dom";

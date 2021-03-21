@@ -14,6 +14,34 @@ import BookmarksOutlinedIcon from "@material-ui/icons/BookmarksOutlined";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import { Link } from "react-router-dom";
 
+export function BrandHeader() {
+  return (
+    <>
+      <Grid
+        container
+        direction="column"
+        style={{
+          background: "white",
+          position: "sticky",
+          top: 0,
+        }}
+      >
+        <Grid item xs={12}>
+          <Header>
+            <HeaderItem>
+              <MenuRoundedIcon />
+            </HeaderItem>
+            <HeaderItem>NBF</HeaderItem>
+            <HeaderItem>
+              <TuneRoundedIcon />
+            </HeaderItem>
+          </Header>
+        </Grid>
+      </Grid>
+    </>
+  );
+}
+
 export function HomeHeader() {
   return (
     <>

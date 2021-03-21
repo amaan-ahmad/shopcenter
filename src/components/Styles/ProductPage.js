@@ -14,16 +14,3 @@ export const SizeOption = styled.div`
   vertical-align: middle;
   font-weight: 600;
 `;
-
-export const BtnAction = styled.button`
-  width: -webkit-fill-available;
-  text-align: center;
-  height: fit-content;
-  padding: 1em;
-  background: black;
-  color: white;
-  border-radius: 6px;
-  border: 0;
-  font-weight: 700;
-  margin: 1em 0;
-`;
