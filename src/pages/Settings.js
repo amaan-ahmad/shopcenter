@@ -62,11 +62,23 @@ export default function Settings() {
         >
           <Grid item xs={12}>
             <label for="email">Full Name:</label>
-            <InputField name="email" type="text" placeholder="john@shop.com" />
+            <InputField
+              name="fullname"
+              type="text"
+              placeholder="Ex: Amaan Ahmad"
+            />
             <label for="email">Email:</label>
-            <InputField name="email" type="text" placeholder="john@shop.com" />
+            <InputField
+              name="email"
+              type="text"
+              placeholder="Ex: hello@amaan.codes"
+            />
             <label for="password">Password:</label>
-            <InputField name="password" type="password" placeholder="secret" />
+            <InputField
+              name="password"
+              type="password"
+              placeholder="shh! this is secret"
+            />
             <label for="password">Select Account type:</label>
             <select mame="account_type">
               <option value="">Account type</option>
