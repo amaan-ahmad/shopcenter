@@ -31,7 +31,7 @@ export const BUYER_LOGIN = gql`
   }
 `;
 export const BUYER_SIGNUP = gql`
-  mutation {
+  mutation buyerLogin($name: String!, $email: String!, $password: String!) {
     buyerSignup(name: $name, email: $email, password: $password) {
       token
       userId
