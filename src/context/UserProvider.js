@@ -5,8 +5,12 @@ const UserDispatchContext = createContext(undefined);
 
 function UserProvider({ children }) {
   const [userDetails, setUserDetails] = useState({
-    userId: "",
-    AuthToken: "",
+    userId: localStorage.getItem("userId")
+      ? localStorage.getItem("userId")
+      : "",
+    AuthToken: localStorage.getItem("AuthToken")
+      ? localStorage.getItem("AuthToken")
+      : "",
   });
 
   return (
