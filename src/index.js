@@ -3,12 +3,33 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  HttpLink,
+  ApolloLink,
+  concat,
+} from "@apollo/client";
 import { UserProvider } from "./context/UserProvider";
+
+const httpLink = new HttpLink({
+  uri: "http://localhost:5500/graphql",
+});
+
+const authMiddleware = new ApolloLink((operation, forward) => {
+  const AuthToken = localStorage.getItem("AuthToken");
+  operation.setContext({
+    headers: {
+      authorization: AuthToken || null,
+    },
+  });
+  return forward(operation);
+});
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "http://localhost:5500/graphql",
+  link: concat(authMiddleware, httpLink),
 });
 
 ReactDOM.render(

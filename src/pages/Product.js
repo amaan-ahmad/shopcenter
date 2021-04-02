@@ -5,7 +5,6 @@ import {
   ProductCard,
   ProductImage,
 } from "../components/Styles/ProductCardStyle";
-import { SizeOption } from "../components/Styles/ProductPage";
 import { BtnAction } from "../components/Styles/Common";
 import Tabs from "../components/Nav/Tabs";
 import { ProductHeader } from "../components/Nav/Headers";
@@ -24,7 +23,7 @@ export default function Product() {
       <Grid style={{ paddingBottom: "4em" }} container direction="row">
         <Grid item xs={12} sm={4}>
           <ProductCard>
-            <ProductImage src={product.img}></ProductImage>
+            <ProductImage src={product.photo}></ProductImage>
           </ProductCard>
         </Grid>
         <Grid item xs={12} sm={8} style={{ padding: "1em" }}>
@@ -34,20 +33,6 @@ export default function Product() {
             </Grid>
             <Grid item xs={12}>
               <Typography variant="h6">&#x20B9; {product.price}</Typography>
-            </Grid>
-            <Grid item xs={12} style={{ marginTop: "2em" }}>
-              <Typography variant="body1">Select a size</Typography>
-            </Grid>
-            <Grid item xs={12} style={{ display: "flex" }}>
-              <SizeOption isActive={true}>
-                <span>S</span>
-              </SizeOption>
-              <SizeOption isActive={false}>
-                <span>M</span>
-              </SizeOption>
-              <SizeOption isActive={false}>
-                <span>L</span>
-              </SizeOption>
             </Grid>
             <Grid item xs={12}>
               <BtnAction onClick={addToCart}>Add to cart</BtnAction>
