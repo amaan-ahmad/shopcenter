@@ -1,5 +1,4 @@
-// login page
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Tabs from "../components/Nav/Tabs";
 import { BrandHeader } from "../components/Nav/Headers";
 import { BtnAction, InputField } from "../components/Styles/Common";
@@ -7,7 +6,7 @@ import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { BUYER_LOGIN } from "../graphql/mutations";
 import { useMutation } from "@apollo/client";
-import { UserDispatchContext } from "../context/UserProvider";
+import { UserContext, UserDispatchContext } from "../context/UserProvider";
 import { useHistory } from "react-router";
 const useStyles = makeStyles({
   subText: {
@@ -26,7 +25,14 @@ export default function Settings() {
   const classes = useStyles();
   const [formInfo, setFormInfo] = useState({});
   const history = useHistory();
+  const { userId, AuthToken } = useContext(UserContext);
   const setUserDetails = useContext(UserDispatchContext);
+
+  useEffect(() => {
+    if (userId !== "" || AuthToken !== "") {
+      history.push("/settings");
+    }
+  }, [userId, AuthToken, history]);
 
   const [buyerLogin] = useMutation(BUYER_LOGIN, {
     onCompleted: (data) => {
