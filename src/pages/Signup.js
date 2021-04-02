@@ -1,12 +1,10 @@
-// register page
-// login page
 import React, { useContext, useState } from "react";
 import Tabs from "../components/Nav/Tabs";
 import { BrandHeader } from "../components/Nav/Headers";
 import { BtnAction, InputField } from "../components/Styles/Common";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { BUYER_LOGIN } from "../graphql/mutations";
+import { BUYER_SIGNUP } from "../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import { UserDispatchContext } from "../context/UserProvider";
 import { useHistory } from "react-router";
@@ -29,7 +27,7 @@ export default function Settings() {
   const history = useHistory();
   const setUserDetails = useContext(UserDispatchContext);
 
-  const [buyerLogin] = useMutation(BUYER_LOGIN, {
+  const [buyerSignup] = useMutation(BUYER_SIGNUP, {
     onCompleted: (data) => {
       const userData = {
         AuthToken: data?.buyerLogin?.token,
@@ -51,10 +49,25 @@ export default function Settings() {
     });
   };
 
-  const handleLogin = () => {
-    buyerLogin({
-      variables: formInfo,
-    });
+  const handleSignup = () => {
+    switch (formInfo?.account_type) {
+      case "SELLER": {
+        console.log("i want to sell");
+        break;
+      }
+      case "BUYER": {
+        buyerSignup({
+          variables: formInfo,
+        });
+        break;
+      }
+
+      default: {
+        console.log("i am a dev");
+        break;
+      }
+    }
+    console.log(formInfo);
   };
 
   return (
@@ -72,7 +85,7 @@ export default function Settings() {
         <Grid item xs={12}>
           <label for="email">Full Name:</label>
           <InputField
-            name="fullname"
+            name="name"
             type="text"
             placeholder="Ex: Amaan Ahmad"
             onChange={handleFormChange}
@@ -89,18 +102,19 @@ export default function Settings() {
             name="password"
             type="password"
             placeholder="shh! this is secret"
+            onChange={handleFormChange}
           />
-          <label for="password" onChange={handleFormChange}>
+          <label for="account_type" onChange={handleFormChange}>
             Select Account type:
           </label>
-          <select mame="account_type">
+          <select name="account_type" onChange={handleFormChange}>
             <option value="">Account type</option>
             <option value="BUYER">Buyer</option>
             <option value="SELLER">Seller</option>
           </select>
         </Grid>
         <Grid item xs={12}>
-          <BtnAction>Sign up</BtnAction>
+          <BtnAction onClick={handleSignup}>Sign up</BtnAction>
           <span
             className={classes.subText}
             onClick={() => history.push("/login")}
