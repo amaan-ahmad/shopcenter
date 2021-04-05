@@ -16,7 +16,7 @@ export const ProductImage = styled.img`
 export const ProductPrice = styled.div`
   display: block;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   padding: 0 0.4em;
 `;
 

@@ -26,3 +26,20 @@ export const GET_ALL_PRODUCTS = gql`
     }
   }
 `;
+
+export const GET_PRODUCT = gql`
+  query getProductByID($id: ID, $slug: String) {
+    product(id: $id, slug: $slug) {
+      name
+      price
+      slug
+      photo
+      category {
+        name
+      }
+      seller {
+        name
+      }
+    }
+  }
+`;
