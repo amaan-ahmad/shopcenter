@@ -34,12 +34,18 @@ export default function Settings() {
     }
   }, [userId, AuthToken, history]);
 
+  const setLocalStore = ({ AuthToken, userId }) => {
+    localStorage.setItem("AuthToken", AuthToken);
+    localStorage.setItem("userId", userId);
+  };
+
   const [buyerLogin] = useMutation(BUYER_LOGIN, {
     onCompleted: (data) => {
       const userData = {
         AuthToken: data?.buyerLogin?.token,
         userId: data?.buyerLogin?.userId,
       };
+      setLocalStore(userData);
       setUserDetails(userData);
       history.location?.state?.ref
         ? history.push(history.location.state.ref)
