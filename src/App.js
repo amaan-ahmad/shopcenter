@@ -9,6 +9,7 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import { UserContext } from "./context/UserProvider";
+import { CartProvider } from "./context/CartProvider";
 function App() {
   const userDetails = useContext(UserContext);
   useEffect(() => {
@@ -20,34 +21,36 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/product/:category/:slug">
-            <Product />
-          </Route>
-          <Route exact path="/search">
-            <Search />
-          </Route>
-          <Route exact path="/Cart">
-            <Cart />
-          </Route>
-          <Route exact path="/saved">
-            <Saved />
-          </Route>
-          <Route exact path="/settings">
-            <Settings />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/product/:category/:slug">
+              <Product />
+            </Route>
+            <Route exact path="/search">
+              <Search />
+            </Route>
+            <Route exact path="/Cart">
+              <Cart />
+            </Route>
+            <Route exact path="/saved">
+              <Saved />
+            </Route>
+            <Route exact path="/settings">
+              <Settings />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </CartProvider>
     </>
   );
 }
