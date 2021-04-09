@@ -30,6 +30,7 @@ export const GET_ALL_PRODUCTS = gql`
 export const GET_PRODUCT = gql`
   query getProductByID($id: ID, $slug: String) {
     product(id: $id, slug: $slug) {
+      id
       name
       price
       slug
@@ -40,6 +41,28 @@ export const GET_PRODUCT = gql`
       seller {
         name
       }
+    }
+  }
+`;
+
+export const GET_CART = gql`
+  query {
+    cart {
+      product {
+        id
+        name
+        price
+        photo
+        slug
+        category {
+          name
+        }
+        seller {
+          name
+          id
+        }
+      }
+      qty
     }
   }
 `;
