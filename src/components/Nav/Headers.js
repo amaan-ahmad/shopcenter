@@ -12,7 +12,7 @@ import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 import BookmarksOutlinedIcon from "@material-ui/icons/BookmarksOutlined";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export function BrandHeader() {
   return (
@@ -83,13 +83,14 @@ export function HomeHeader() {
 }
 
 export function ProductHeader() {
+  const history = useHistory();
   return (
     <>
       <Header shadow={true}>
         <HeaderItem>
-          <Link to={`/`}>
+          <div onClick={() => history.goBack()}>
             <ArrowBackIosRoundedIcon />
-          </Link>
+          </div>
         </HeaderItem>
         <HeaderItem style={{ marginRight: "0", fontWeight: 600 }}>
           <BookmarksOutlinedIcon />
