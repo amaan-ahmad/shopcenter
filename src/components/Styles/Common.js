@@ -21,3 +21,20 @@ export const InputField = styled.input`
   width: -webkit-fill-available;
   border-radius: 6px;
 `;
+
+export const Toast = styled.div`
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  border: black 2px solid;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  &::before {
+    content: "🚀";
+  }
+`;
