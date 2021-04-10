@@ -13,10 +13,13 @@ import { GET_PRODUCT } from "../graphql/queries";
 import { useMutation, useLazyQuery } from "@apollo/client";
 import { UPDATE_CART } from "../graphql/mutations";
 import { CartDispatchContext } from "../context/CartProvider";
+import AnimatedGlassToast from "../components/AnimatedGlassToast";
 export default function Product() {
   const history = useHistory();
   const state = history.location.state;
   const [product, setProduct] = useState(state?.product);
+  const [showToast, setShowToast] = useState(false);
+  const [nodeJSTimeOut, setNodeJSTimeOut] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const { slug } = useParams();
   const { setIsUpdated } = useContext(CartDispatchContext);
@@ -39,6 +42,8 @@ export default function Product() {
     onCompleted: (data) => {
       console.log(data);
       setIsUpdated(true);
+      setShowToast(true);
+      setNodeJSTimeOut(setTimeout(() => setShowToast(false), 2000));
     },
   });
 
@@ -55,8 +60,11 @@ export default function Product() {
     }
     return () => {
       console.log("Unmount Product");
+      if (nodeJSTimeOut) {
+        clearTimeout(nodeJSTimeOut);
+      }
     };
-  }, [product, getProduct, slug, state]);
+  }, [product, getProduct, slug, state, nodeJSTimeOut]);
 
   return (
     <>
@@ -86,6 +94,9 @@ export default function Product() {
           </Grid>
         </Grid>
       )}
+      {showToast ? (
+        <AnimatedGlassToast>Added to cart</AnimatedGlassToast>
+      ) : null}
     </>
   );
 }
