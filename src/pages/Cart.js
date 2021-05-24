@@ -18,12 +18,13 @@ import {
 } from "../components/Styles/CartItem";
 import { CartContext, CartDispatchContext } from "../context/CartProvider";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { BtnAction } from "../components/Styles/Common";
 
 export default function Cart() {
   const { cartItems, isUpdated } = useContext(CartContext);
   const { setCartItems, setIsUpdated } = useContext(CartDispatchContext);
-
+  const history = useHistory();
   const { data, loading, error, refetch } = useQuery(GET_CART);
 
   if (loading) {
@@ -36,6 +37,8 @@ export default function Cart() {
       setCartItems(data?.cart);
     }
   }
+
+  const handlePlaceOrder = () => history.push("/checkout");
 
   useEffect(() => {
     console.log("mounted cart");
@@ -63,6 +66,9 @@ export default function Cart() {
         ) : (
           <>
             <Grid container direction="column">
+              <Grid item xs={12} md={6}>
+                <h1 style={{ margin: "0 1.25rem" }}>Cart</h1>
+              </Grid>
               {cartItems.map((item) => {
                 return (
                   <Grid key={item.product.id} item xs={12} md={6}>
@@ -85,6 +91,14 @@ export default function Cart() {
                   </Grid>
                 );
               })}
+              <Grid item xs={12} md={6}>
+                <BtnAction
+                  onClick={handlePlaceOrder}
+                  style={{ margin: "0 1.25rem" }}
+                >
+                  Place order
+                </BtnAction>
+              </Grid>
             </Grid>
           </>
         )}
