@@ -19,6 +19,7 @@ export default function Product() {
   const state = history.location.state;
   const [product, setProduct] = useState(state?.product);
   const [showToast, setShowToast] = useState(false);
+  const [showError, setShowError] = useState(false);
   const [nodeJSTimeOut, setNodeJSTimeOut] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const { slug } = useParams();
@@ -44,6 +45,11 @@ export default function Product() {
       setIsUpdated(true);
       setShowToast(true);
       setNodeJSTimeOut(setTimeout(() => setShowToast(false), 2000));
+    },
+    onError: (error) => {
+      console.error(error);
+      setShowError(true);
+      setNodeJSTimeOut(setTimeout(() => setShowError(false), 2000));
     },
   });
 
@@ -97,6 +103,11 @@ export default function Product() {
       {showToast ? (
         <AnimatedGlassToast>Added to cart</AnimatedGlassToast>
       ) : null}
+      {showError ? (
+        <AnimatedGlassToast>Kindly login</AnimatedGlassToast>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
