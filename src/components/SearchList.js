@@ -6,7 +6,7 @@ import {
   SearchListItemImage,
 } from "../components/Styles/SearchListStyle";
 export default function SearchList() {
-  const staticPlaceholdURL = "https://placehold.it/100x100";
+  const staticPlaceholdURL = "https://picsum.photos/100";
 
   return (
     <>
