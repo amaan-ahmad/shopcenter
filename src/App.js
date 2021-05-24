@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import { UserContext } from "./context/UserProvider";
 import { CartProvider } from "./context/CartProvider";
+import Checkout from "./pages/Checkout";
 function App() {
   const userDetails = useContext(UserContext);
   useEffect(() => {
@@ -47,6 +48,9 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/checkout">
+              <Checkout />
             </Route>
           </Switch>
         </BrowserRouter>
