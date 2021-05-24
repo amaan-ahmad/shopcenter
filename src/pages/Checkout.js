@@ -12,7 +12,7 @@ export default function Checkout() {
   const [addresses, setAddresses] = React.useState([]);
   const handleCompleted = (data) => setAddresses(data.buyer.address);
   const handleError = (error) => console.error(error);
-  const { cartItems, isUpdated } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
   useQuery(GET_ADDRESS, { onCompleted: handleCompleted, onError: handleError });
   console.log("from checkout: ", cartItems);
   const calculateBill = () => {
