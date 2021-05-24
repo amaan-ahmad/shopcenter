@@ -66,3 +66,17 @@ export const GET_CART = gql`
     }
   }
 `;
+
+export const GET_ADDRESS = gql`
+  query{
+    buyer{
+      address{
+        line1
+        line2
+        state
+        city
+        zipcode
+      }
+    }
+  }
+`
