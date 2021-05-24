@@ -14,7 +14,7 @@ export default function AnimatedGlassToast({ children }) {
           damping: 20,
         }}
       >
-        <Toast>Added to cart</Toast>
+        <Toast>{children}</Toast>
       </motion.div>
     </>
   );
