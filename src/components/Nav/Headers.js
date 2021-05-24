@@ -27,14 +27,10 @@ export function BrandHeader() {
         }}
       >
         <Grid item xs={12}>
-          <Header>
-            <HeaderItem>
-              <MenuRoundedIcon />
-            </HeaderItem>
+          <Header shadow={true}>
+            <HeaderItem>{/* <MenuRoundedIcon /> */}</HeaderItem>
             <HeaderItem>NBF</HeaderItem>
-            <HeaderItem>
-              <TuneRoundedIcon />
-            </HeaderItem>
+            <HeaderItem>{/* <TuneRoundedIcon /> */}</HeaderItem>
           </Header>
         </Grid>
       </Grid>
@@ -56,13 +52,9 @@ export function HomeHeader() {
       >
         <Grid item xs={12}>
           <Header>
-            <HeaderItem>
-              <MenuRoundedIcon />
-            </HeaderItem>
+            <HeaderItem>{/* <MenuRoundedIcon /> */}</HeaderItem>
             <HeaderItem>NBF</HeaderItem>
-            <HeaderItem>
-              <TuneRoundedIcon />
-            </HeaderItem>
+            <HeaderItem>{/* <TuneRoundedIcon /> */}</HeaderItem>
           </Header>
         </Grid>
         <Grid item xs={12}>
