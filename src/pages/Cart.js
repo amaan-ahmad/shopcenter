@@ -67,7 +67,7 @@ export default function Cart() {
           <>
             <Grid container direction="column">
               <Grid item xs={12} md={6}>
-                <h1 style={{ margin: "0 1.25rem" }}>Cart</h1>
+                <h1 style={{ margin: "1.25rem" }}>Cart</h1>
               </Grid>
               {cartItems.map((item) => {
                 return (
