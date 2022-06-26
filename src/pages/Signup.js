@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 
 export default function Settings() {
   const classes = useStyles();
-  const [formInfo, setFormInfo] = useState({});
+  const [formInfo, setFormInfo] = useState({ account_type: "BUYER" });
   const history = useHistory();
   const setUserDetails = useContext(UserDispatchContext);
 
@@ -104,14 +104,14 @@ export default function Settings() {
             placeholder="shh! this is secret"
             onChange={handleFormChange}
           />
-          <label for="account_type" onChange={handleFormChange}>
+          {/* <label for="account_type" onChange={handleFormChange}>
             Select Account type:
           </label>
           <select name="account_type" onChange={handleFormChange}>
             <option value="">Account type</option>
             <option value="BUYER">Buyer</option>
             <option value="SELLER">Seller</option>
-          </select>
+          </select> */}
         </Grid>
         <Grid item xs={12}>
           <BtnAction onClick={handleSignup}>Sign up</BtnAction>
