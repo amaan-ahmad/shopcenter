@@ -65,32 +65,35 @@ export default function Cart() {
           </>
         ) : (
           <>
-            <Grid container direction="column">
+            <Grid container direction="row">
               <Grid item xs={12} md={6}>
                 <h1 style={{ margin: "1.25rem" }}>Cart</h1>
               </Grid>
-              {cartItems.map((item) => {
-                return (
-                  <Grid key={item.product.id} item xs={12} md={6}>
-                    <Link
-                      to={{
-                        pathname: `/product/${item.product.category.name}/${item.product.slug}`,
-                        state: { product: item.product },
-                      }}
-                    >
-                      <CartItem badge={item.qty}>
-                        <CartItemImage src={item.product.photo} />
-                        <CartItemDetails>
-                          <CartItemName>{item.product.name}</CartItemName>
-                          <CartItemPrice>
-                            &#x20B9; {item.product.price}
-                          </CartItemPrice>
-                        </CartItemDetails>
-                      </CartItem>
-                    </Link>
-                  </Grid>
-                );
-              })}
+              <Grid item xs={12} md={6}>
+                {cartItems.map((item) => {
+                  return (
+                    <Grid key={item.product.id} item xs={12} md={6}>
+                      <Link
+                        to={{
+                          pathname: `/product/${item.product.category.name}/${item.product.slug}`,
+                          state: { product: item.product },
+                        }}
+                      >
+                        <CartItem badge={item.qty}>
+                          <CartItemImage src={item.product.photo} />
+                          <CartItemDetails>
+                            <CartItemName>{item.product.name}</CartItemName>
+                            <CartItemPrice>
+                              &#x20B9; {item.product.price}
+                            </CartItemPrice>
+                          </CartItemDetails>
+                        </CartItem>
+                      </Link>
+                    </Grid>
+                  );
+                })}
+              </Grid>
+
               <Grid item xs={12} md={6}>
                 <BtnAction
                   onClick={handlePlaceOrder}
